@@ -52,7 +52,7 @@ ul {
 }
 
 .bg-blue {
-	background-color: #393947
+	background-color: #0c0c0c
 }
 
 .site-header .navbar-nav .nav-link {
@@ -108,7 +108,7 @@ ul {
 }
 
 .content-section:hover {
-	box-shadow: 2px 2px 3px #e6992299
+	box-shadow: 2px 2px 3px #161941
 }
 
 .content-section-orange {
@@ -117,7 +117,7 @@ ul {
 	border: 1px solid #ddd;
 	border-radius: 3px;
 	margin-bottom: 20px;
-	box-shadow: 2px 2px 3px #e6992299
+	box-shadow: 2px 2px 3px #161941
 }
 
 .content-section-orange:hover {
@@ -330,21 +330,20 @@ a.article-title:hover {
 
 	.profile-image-div .user-edit {
 		position: absolute;
-		width: 50px;
-		top: 60px;
+		top: 75px;
 		right: 15px
 	}
 }
 
 .ncc-title {
 	font-weight: bolder;
-	color: #89ffab;
+	color: #b9d3ff;
 
 }
 
 .buddies-title {
 	font-weight: bolder;
-	color: #89ffab;
+	color: #b9d3ff;
 }
 
 .username-p {
@@ -523,7 +522,7 @@ a.article-title:hover {
 	width: 87%;
 	padding: 4px;
 	border-radius: 3px;
-	border: 2px solid #2ecc71;
+	border: 2px solid #3d3d3d;
 	margin-right: 5px;
 	color: inherit
 }
@@ -531,7 +530,7 @@ a.article-title:hover {
 .btn-search {
 	padding: 4px 15px;
 	border-radius: 3px;
-	background-color: #ffa50b;
+	background-color: #161941;
 	color: #fff;
 	border: none;
 	cursor: pointer
@@ -659,5 +658,31 @@ a.article-title:hover {
 }
 
 .suggestions-left img {
-	border: 1px solid orange;
+	border: 1px solid #10fc9b;
+}
+#chat-form {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Adds a small space between the input box and the button */
+}
+
+.message-input {
+    flex-grow: 1; /* Allows the input box to fill the available space */
+    padding: 0.375rem 0.75rem; /* Adjust padding to control the height */
+}
+
+.send-button {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.send-button svg {
+    width: 40px; /* Adjusts the size of the SVG icon */
+    height: 34px;
+    fill: #007bff; /* Change this to match your design */
 }

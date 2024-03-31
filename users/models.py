@@ -5,7 +5,7 @@ from django.utils import timezone
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill,Transpose
 from taggit.managers import TaggableManager
-from PIL import Image
+
 
 WING = [
     
