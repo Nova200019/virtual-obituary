@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'sql_server.pyodbc',
+        'ENGINE': 'mssql',
         'NAME': 'deadman',
         'USER': 'pdmpubcemp',
         'PASSWORD': '1920London',
@@ -89,7 +89,6 @@ DATABASES = {
 
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
-            'MARS_Connection': 'True',
         },
     },
 }
