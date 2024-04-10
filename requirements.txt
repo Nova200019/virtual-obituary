@@ -24,4 +24,5 @@ daphne
 django-storages
 azure-storage-blob
 azure-common
+azure-functions
 requests
