@@ -80,10 +80,20 @@ WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'deadman',
+        'USER': 'pdmpubcemp',
+        'PASSWORD': '1920London',
+        'HOST': 'deadman.mysql.database.azure.com',
+        'PORT': '',
+
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',
+            'MARS_Connection': 'True',
+        },
+    },
 }
+
 
 STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
 
@@ -120,7 +130,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
 AZURE_ACCOUNT_NAME = 'csb100320016ae5e2db'
 AZURE_ACCOUNT_KEY = 'y/F96Xonj8qdOp019d2kTgwNU5Dube9mPprx1l3R3P4UdEb9DIcut946FEwdyALWluLREjEx22+ij+AStYinwtA=='
 AZURE_CONTAINER = 'media'
-MEDIA_URL = f'https://csb100320016ae5e2db.blob.core.windows.net/media/'
+MEDIA_URL = f'https://csb100320016ae5e2db.file.core.windows.net/media'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
