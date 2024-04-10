@@ -22,4 +22,5 @@ sqlparse==0.3.1
 urllib3==1.25.11
 daphne
 azure==3.0.0
-
+pyodbc 
+django-pyodbc-azure
