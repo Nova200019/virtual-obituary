@@ -85,7 +85,7 @@ DATABASES = {
         'USER': 'pdmpubcemp',
         'PASSWORD': '1920London',
         'HOST': 'deadman.mysql.database.azure.com',
-        'PORT': '',
+        'PORT': '3306',
 
         'OPTIONS': {
             'driver': 'ODBC Driver 17 for SQL Server',
