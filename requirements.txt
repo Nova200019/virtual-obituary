@@ -23,4 +23,4 @@ urllib3==1.25.11
 daphne
 azure==3.0.0
 pyodbc 
-django-pyodbc-azure
+django-pyodbc-azure==2.1.0.0
