@@ -27,7 +27,4 @@ urlpatterns = [
     path('<str:username>/', user_views.profile, name='profile'),
     path('validate/username/', user_views.validate_username,name='validate-username'),
 ]
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 handler404 = 'footer.views.error_404_view'
