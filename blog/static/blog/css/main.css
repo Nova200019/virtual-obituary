@@ -1,6 +1,6 @@
 body {
 	background: #fafafa;
-	color: #333;
+	color: #131313;
 	margin-top: 5rem;
 	position: relative
 }
@@ -11,7 +11,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: #444
+	color: #000000
 }
 
 .h-font {
@@ -338,13 +338,13 @@ a.article-title:hover {
 
 .ncc-title {
 	font-weight: bolder;
-	color: #89ffab;
+	color: #ffffff;
 
 }
 
 .buddies-title {
 	font-weight: bolder;
-	color: #89ffab;
+	color: #ffffff;
 }
 
 .username-p {
