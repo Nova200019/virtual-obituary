@@ -117,12 +117,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
- DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-    AZURE_ACCOUNT_NAME = 'csb100320016ae5e2db'
-    AZURE_ACCOUNT_KEY = 'y/F96Xonj8qdOp019d2kTgwNU5Dube9mPprx1l3R3P4UdEb9DIcut946FEwdyALWluLREjEx22+ij+AStYinwtA=='
-    AZURE_CONTAINER = 'media'
-    MEDIA_URL = f'https://csb100320016ae5e2db.blob.core.windows.net/media/'
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+AZURE_ACCOUNT_NAME = 'csb100320016ae5e2db'
+AZURE_ACCOUNT_KEY = 'y/F96Xonj8qdOp019d2kTgwNU5Dube9mPprx1l3R3P4UdEb9DIcut946FEwdyALWluLREjEx22+ij+AStYinwtA=='
+AZURE_CONTAINER = 'media'
+MEDIA_URL = f'https://csb100320016ae5e2db.blob.core.windows.net/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
