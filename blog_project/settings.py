@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'blog_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': 'deadman',
+        'NAME': 'deaths',
         'USER': 'pdmpubcemp',
         'PASSWORD': '1920London',
         'HOST': 'deadman.mysql.database.azure.com',
