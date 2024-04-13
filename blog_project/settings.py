@@ -88,7 +88,7 @@ DATABASES = {
         'PORT': '3306',  # Default MySQL port
         'OPTIONS': {
             'ssl': {
-                'ca': 'CA.cert.pem',  # Assuming the CA certificate is in the same directory as settings.py
+                 'ca': os.path.join(BASE_DIR, 'CA.crt.pem'),
             },
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",  # Optional: Enforces strict SQL mode
         },
