@@ -87,6 +87,9 @@ DATABASES = {
         'HOST': 'deadman.mysql.database.azure.com',
         'PORT': '3306',  # Default MySQL port
         'OPTIONS': {
+            'ssl': {
+                'ca': 'CA.cert.pem',  # Assuming server-ca.pem is in the same directory as settings.py
+            }
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",  # Optional: Set strict mode
         },
     },
