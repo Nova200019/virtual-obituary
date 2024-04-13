@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Changed to use Django's MySQL backend
+        'ENGINE': 'django.db.backends.mysql',  # Using Django's MySQL backend
         'NAME': 'deaths',
         'USER': 'pdmpubcemp',
         'PASSWORD': '1920London',
@@ -88,9 +88,9 @@ DATABASES = {
         'PORT': '3306',  # Default MySQL port
         'OPTIONS': {
             'ssl': {
-                'ca': 'CA.cert.pem',  # Assuming server-ca.pem is in the same directory as settings.py
-            }
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",  # Optional: Set strict mode
+                'ca': 'CA.cert.pem',  # Assuming the CA certificate is in the same directory as settings.py
+            },
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",  # Optional: Enforces strict SQL mode
         },
     },
 }
