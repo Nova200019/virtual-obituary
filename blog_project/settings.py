@@ -80,19 +80,17 @@ WSGI_APPLICATION = 'blog_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
+        'ENGINE': 'django.db.backends.mysql',  # Changed to use Django's MySQL backend
         'NAME': 'deaths',
         'USER': 'pdmpubcemp',
         'PASSWORD': '1920London',
         'HOST': 'deadman.mysql.database.azure.com',
-        'PORT': '3306',
-
+        'PORT': '3306',  # Default MySQL port
         'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",  # Optional: Set strict mode
         },
     },
 }
-
 
 STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
 
