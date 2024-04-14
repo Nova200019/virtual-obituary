@@ -1,33 +1,40 @@
-from storages.backends.s3boto3 import S3Boto3Storage, SpooledTemporaryFile
+from django.core.files.storage import Storage
+from azure.storage.blob import BlobServiceClient, BlobClient
+from tempfile import SpooledTemporaryFile
 import os
 
-class CustomS3Boto3Storage(S3Boto3Storage):
-    """
-    This is our custom version of S3Boto3Storage that fixes a bug in
-    boto3 where the passed in file is closed upon upload.
-    From:
-    https://github.com/matthewwithanm/django-imagekit/issues/391#issuecomment-275367006
-    https://github.com/boto/boto3/issues/929
-    https://github.com/matthewwithanm/django-imagekit/issues/391
-    """
+class CustomS3Boto3Storage(Storage):
+    def __init__(self, option=None):
+        if not option:
+            option = {}
+        self.account_name = option.get('account_name')
+        self.account_key = option.get('account_key')
+        self.container_name = option.get('container_name')
+        self.blob_service_client = BlobServiceClient(
+            f"https://{self.account_name}.blob.core.windows.net/",
+            credential=self.account_key
+        )
+        self.container_client = self.blob_service_client.get_container_client(self.container_name)
+
+    def _open(self, name, mode='rb'):
+        # Assuming we're opening in binary read mode
+        blob_client = self.container_client.get_blob_client(name)
+        downloader = blob_client.download_blob()
+        return downloader.readall()
 
     def _save(self, name, content):
-        """
-        We create a clone of the content file as when this is passed to
-        boto3 it wrongly closes the file upon upload where as the storage
-        backend expects it to still be open
-        """
-        # Seek our content back to the start
         content.seek(0, os.SEEK_SET)
-
-        # Create a temporary file that will write to disk after a specified
-        # size. This file will be automatically deleted when closed by
-        # boto3 or after exiting the `with` statement if the boto3 is fixed
         with SpooledTemporaryFile() as content_autoclose:
-
-            # Write our original content into our copy that will be closed by boto3
             content_autoclose.write(content.read())
+            content_autoclose.seek(0)
+            blob_client = self.container_client.get_blob_client(name)
+            blob_client.upload_blob(content_autoclose, overwrite=True)
+        return name
 
-            # Upload the object which will auto close the
-            # content_autoclose instance
-            return super(CustomS3Boto3Storage, self)._save(name, content_autoclose)
+    def exists(self, name):
+        blob_client = self.container_client.get_blob_client(name)
+        return blob_client.exists()
+
+    def url(self, name):
+        # Generates a URL accessible publicly. Adjust as needed for permissions.
+        return f"https://{self.account_name}.blob.core.windows.net/{self.container_name}/{name}"
